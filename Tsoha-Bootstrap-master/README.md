@@ -2,9 +2,9 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](https://www.cs.helsinki.fi)
-* [Linkki dokumentaatiooni](https://www.github.com)
+* Linkki sovellukseeni
+* [Linkki dokumentaatiooni](https://github.com/Maerus/tsoha/blob/master/Tsoha-Bootstrap-master/doc/dokumentaatio.pdf)
 
-## Työn aihe
+## Pokémon-tietokanta
 
-Laita tähän aihekuvaus tai [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) 
+* [Linkki tehtävänantoon] (http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html)
