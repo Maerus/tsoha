@@ -2,7 +2,7 @@
 
 Yleisiä linkkejä:
 
-* Linkki sovellukseeni
+* [Linkki sovellukseeni] (http://msibakov.users.cs.helsinki.fi/tsoha/)
 * [Linkki dokumentaatiooni](https://github.com/Maerus/tsoha/blob/master/Tsoha-Bootstrap-master/doc/dokumentaatio.pdf)
 
 ## Pokémon-tietokanta
