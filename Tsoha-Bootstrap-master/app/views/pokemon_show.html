@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+  <!-- Painikkeet tähän -->
+  <p>
+    <button class="btn btn-danger">Delete from favourites</button>
+  </p>
+  <p>
+    <button class="btn btn-success">Save</button>
+  </p>
+  <!-- Tiedot tulee listana tähän -->
+  <ul>
+    
+    <li><strong>Species:</strong> Greninja</li>
+	<li><strong>Dex:</strong> 658</li>
+	<li><strong>Types:</strong> Water Dark</li>
+	<li><div class="form-inline">
+      <label>Nickname:</label>
+      <input class="form-control" value="Froge" type="text">
+	  <label>Gender:</label>
+      <input class="form-control" value="Female" type="text"></div></li>
+	<li><div class="form-inline"><label>Ability:</label>
+      <input class="form-control" value="Protean" type="text"></div></li>
+	  <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>HP</th>
+		    <th>Attack</th>
+		    <th>Defence</th>
+		    <th>Special Attack</th>
+		    <th>Special Defence</th>
+		    <th>Speed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+		    <td><strong>IV:</strong></td>
+			<td><label class="sr-only">hp</label><input class="form-control" value="31" type="text"></td>
+	        <td><label class="sr-only">atk</label><input class="form-control" value="" type="text"></td>
+	        <td><label class="sr-only">def</label><input class="form-control" value="31" type="text"></td>
+	        <td><label class="sr-only">satk</label><input class="form-control" value="31" type="text"></td>
+	        <td><label class="sr-only">sdef</label><input class="form-control" value="31" type="text"></td>
+	        <td><label class="sr-only">spd</label><input class="form-control" value="31" type="text"></td>
+          </tr>
+          <tr>
+            <td><strong>EV:</strong></td>
+			<td><label class="sr-only">hp</label><input class="form-control" value="4" type="text"></td>
+	        <td><label class="sr-only">atk</label><input class="form-control" value="0" type="text"></td>
+	        <td><label class="sr-only">def</label><input class="form-control" value="0" type="text"></td>
+	        <td><label class="sr-only">satk</label><input class="form-control" value="252" type="text"></td>
+	        <td><label class="sr-only">sdef</label><input class="form-control" value="0" type="text"></td>
+	        <td><label class="sr-only">spd</label><input class="form-control" value="252" type="text"></td>
+          </tr>
+        </tbody>
+    </table>
+  </ul>
+  <p>
+    <li><strong>Moveset:</strong></li>
+  </p>
+  <!-- moveset taulukkona -->
+  <table class="table table-striped table-bordered">
+    <tbody>
+	  <tr>
+        <td>Substitute</a></td>
+        <td>Normal</td>
+        <td>Status</td>
+		<td>The user makes a copy of itself using some of its HP. The copy serves as the user’s decoy.</td>
+        <td>-</td>
+        <td>-%</td>
+		<td>10</td>
+		<th><a class="btn btn-default btn-sm" href="#">Edit</a> <a class="btn btn-danger btn-sm" href="#">Delete</a></th>
+      </tr>
+	  <tr>
+        <td>Tackle</a></td>
+        <td>Normal</td>
+        <td>Physical</td>
+		<td>A physical attack in which the user charges and slams into the target with its whole body.</td>
+        <td>50</td>
+        <td>100%</td>
+		<td>35</td>
+		<th><a class="btn btn-default btn-sm" href="#">Edit</a> <a class="btn btn-danger btn-sm" href="#">Delete</a></th>
+      </tr>
+	  <tr>
+        <td></a></td>
+        <td></td>
+        <td></td>
+		<td></td>
+        <td></td>
+        <td></td>
+		<td></td>
+		<th><a class="btn btn-default btn-sm" href="#">Add</a></th>
+      </tr>
+	  <tr>
+        <td></a></td>
+        <td></td>
+        <td></td>
+		<td></td>
+        <td></td>
+        <td></td>
+		<td></td>
+		<th><a class="btn btn-default btn-sm" href="#">Add</a></th>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>List of Pokemon</h1>
+
+  <p>
+    <a href="#" class="btn btn-warning">Add Pokemon Species</a>
+  </p>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+		<th>Dex</th> 
+        <th>Type</th>
+        <th>Abilities</th>
+		<th>Hidden Abilities</th>
+		<th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      
+	  <tr>
+        <td><a href="#">Greninja</a></td>
+		<td>658</td>
+        <td><label>Water</label> <label>Dark</label></td>
+        <td>Torrent</td>
+		<td>Protean</td>
+		<th><a class="btn btn-default btn-sm" href="#">Edit</a> <a class="btn btn-danger btn-sm" href="#">Delete</a></th>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}

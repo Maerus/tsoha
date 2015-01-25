@@ -1,1 +1,7 @@
 -- Lisää DROP TABLE lauseet tähän tiedostoon
+
+DROP TABLE IF EXISTS move CASCADE;
+DROP TABLE IF EXISTS species CASCADE;
+DROP TABLE IF EXISTS moves_of_species;
+DROP TABLE IF EXISTS patron CASCADE;
+DROP TABLE IF EXISTS pokemon;
