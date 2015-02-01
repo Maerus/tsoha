@@ -2,7 +2,7 @@
 
 
 INSERT INTO move(name, type, category, power, accuracy, pp, description)
-VALUES	('Test Move', 'Flying', 'Physical', 50, 100, 35, 'This is a test description'),
+VALUES	('Test Move', 'Normal', 'Physical', 50, 100, 35, 'This is a test description'),
 ('Test Move 2', 'Flying', 'Special', 10, 80, 10, 'aaaaaaaaaaaaaaaaaaaaaaaa');
 
 INSERT INTO species(name, dexno, type1, type2, ability1, ability2, hability1, hability2,

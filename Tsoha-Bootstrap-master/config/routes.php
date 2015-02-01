@@ -12,8 +12,25 @@
     HelloWorldController::test1();
   });
 
-  $app->get('/test2', function() {
-    HelloWorldController::test2();
+  $app->get('/move_list', function() {
+    MoveController::index();
+  });
+  
+  $app->post('/move_list_a', function() {
+    MoveController::store();
+  });
+  
+  $app->get('/move_list_a', function() {
+    MoveController::movelist_a();
+  });
+  
+  // new before :id
+  $app->get('/move_edit/new', function() {
+    MoveController::create();
+  });
+  
+  $app->get('/move_edit/:id', function($id) {
+    MoveController::moveedit_a($id);
   });
   
   $app->get('/test3', function() {

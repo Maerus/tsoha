@@ -1,40 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Edit move: {{move.name}}</h1>
+  <h1>Add new move</h1>
 
   <form method="post" action="{{base_path}}/move_list_a">
     
     <div class="form-group">
       <label>Name</label>
-      <input class="form-control" value="{{move.name}}" type="text">
+      <input name="name" class="form-control" type="text">
     </div>
     <div class="form-group">
       <label>Type</label>
-      <input class="form-control" value="{{move.type}}" type="text">
+      <input name="type" class="form-control" type="text">
     </div>
     <div class="form-group">
       <label>Category</label>
-      <input class="form-control" value="{{move.category}}" type="text">
+      <input name="category" class="form-control" type="text">
     </div>
     <div class="form-group">
       <label>Power</label>
-      <input class="form-control" value="{{move.power}}" type="text">
+      <input name="power" class="form-control" type="text">
     </div>
     <div class="form-group">
       <label>Accuracy %</label>
-      <input class="form-control" value="{{move.accuracy}}" type="text">
+      <input name="accuracy" class="form-control" type="text">
     </div>
     <div class="form-group">
       <label>PP</label>
-      <input class="form-control" value="{{move.pp}}" type="text">
+      <input name="pp" class="form-control" type="text">
     </div>
     <div class="form-group">
       <label>Description</label>
-      <textarea class="form-control">{{move.description}}</textarea>
+      <textarea name="description" class="form-control"></textarea>
     </div>
-    
-      <a class="btn btn-primary">Save</a>
-    
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
   </form>
 {% endblock %}

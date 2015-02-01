@@ -1,26 +1,40 @@
 <?php
 
+//composer ei tosiaankaan tullut bootstrap.sh mukana
+
   class HelloWorldController extends BaseController{
 
     public static function index(){
    	  self::render_view('home.html');
     }
 
+	/*
     public static function sandbox(){
       // Testaa koodiasi täällä	
       self::render_view('helloworld.html');
     }
-
+	*/
+	
+	public static function sandbox(){
+		$moves = Move::all();
+		print_r($moves);
+		
+		$moves = Move::findByType('Fire');
+		print_r($moves);
+    }
+	
     public static function test1(){
       // Testaa koodiasi täällä	
       self::render_view('login.html');
     }
 
+	/*
     public static function test2(){
       // Testaa koodiasi täällä	
       self::render_view('move_list.html');
     }
-
+	*/
+	
     public static function test3(){
       // Testaa koodiasi täällä	
       self::render_view('move_list_admin.html');

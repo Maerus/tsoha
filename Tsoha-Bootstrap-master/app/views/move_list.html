@@ -18,24 +18,17 @@
 
     <tbody>
       
-      <tr>
-        <td>Substitute</a></td>
-        <td>Normal</td>
-        <td>Status</td>
-		<td>The user makes a copy of itself using some of its HP. The copy serves as the user’s decoy.</td>
-        <td>-</td>
-        <td>-%</td>
-		<td>10</td>
-      </tr>
+	  {% for move in moves %}
 	  <tr>
-        <td>Tackle</a></td>
-        <td>Normal</td>
-        <td>Physical</td>
-		<td>A physical attack in which the user charges and slams into the target with its whole body.</td>
-        <td>50</td>
-        <td>100%</td>
-		<td>35</td>
+	    <td>{{move.name}}</td>
+        <td>{{move.type}}</td>
+        <td>{{move.category}}</td>
+		<td>{{move.description}}</td>
+        <td>{{move.power}}</td>
+        <td>{{move.accuracy}}%</td>
+		<td>{{move.pp}}</td>
       </tr>
+	  {% endfor %}
     </tbody>
   </table>
 {% endblock %}

@@ -17,7 +17,7 @@ CREATE TABLE move(
 	type pokemon_type NOT NULL,
 	category move_category NOT NULL,
 	power integer,
-	accuracy integer,
+	accuracy integer CHECK(accuracy < 101 ) CHECK(accuracy > -1),
 	pp integer,
 	description text
 );
