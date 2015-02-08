@@ -2,19 +2,25 @@
 
 {% block content %}
   <h1>Log in to system</h1>
+  
+  {% if error %}
+  <div class="alert alert-danger">
+    {{error}}
+  </div>
+  {% endif %}
 
   <!-- Kaikki lomakkeen elementit form-tagin sisään -->
-  <form>
+  <form method="post" action="{{base_path}}/login">
     <!-- Tekstikenttä käyttäjätunnukselle -->
     <div class="form-group">
       <label>User name</label>
-      <input class="form-control" type="text">
+      <input class="form-control" name="username" type="text">
     </div>
 
     <!-- Salasanakenttä salasanalle -->
     <div class="form-group">
       <label>Password</label>
-      <input class="form-control" type="password">
+      <input class="form-control" name="password" type="password">
     </div>
 
     <button type="submit" class="btn btn-primary">Log in</button>

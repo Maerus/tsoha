@@ -4,19 +4,31 @@
   <div class="page-header">
     <h1>Tervetuloa Tsoha Bootstrappiin!</h1>
   </div>
+  
+  {% if message %}
+	<div class="alert alert-success">
+          {{message}}
+    </div>
+  {% endif %}
+  
+  {% if error %}
+	<div class="alert alert-warning">
+          {{error}}
+    </div>
+  {% endif %}
 
   <a href="http://kalleilv.users.cs.helsinki.fi/tsoha-materiaali" class="btn btn-primary btn-lg">Tutustu materiaaliin <span class="glyphicon glyphicon-chevron-right"></span></a>
   
   <p>
-	Viikko 3: malli ja kontrolleri
+	Viikko 4: validointi, editointi, poisto ja login
 	<ul>
-	  <li>Kehitys suuntautui tällä viikolla pokemonien liikkeisiin, sillä liikelistat olivat helppoja kohteita materiaalin seuraamista varten.</li>
-	  <li>Liikkeillä ei ole varsinaista esittelysivua, joten sen paikalla käytän liikkeiden editointisivuja kohteen arvojen näyttämiseen.</li>
-	  <li>Niihin pääsee adminin liikelistan Edit-nappien kautta, mutta itse editointi ja poistaminen eivät ole vielä toiminnallisia.</li>
-	  <li>Liikkeiden lisäys voidaan suorittaa admin listan kautta Add Move-napilla. Lomake on samannäköinen, kuin editointisivuissa, mutta sillä voi lisätä kohteita tauluun.</li>
-  	  <li>Lomake pitää tosin olla täytetty oikein, jotta se toimisi.</li>
-	  <li><a href="http://msibakov.users.cs.helsinki.fi/tsoha/move_list">Linkki liikelistaan</a></li>
+	  <li>Korostetusta linkistä pääsee kokeilemaan lisäämistä, editointia ja poistamista</li>
+	  <li>add_test_data.sql mukana tulleita testiliikkeitä ei voi poistaa, mutta niitä voi muokata. Erikseen lisättyjä liikkeitä voi poistaa.</li>
+	  <li><a href="http://msibakov.users.cs.helsinki.fi/tsoha/move_list">Move List</a></li>
 	  <li><b><a href="http://msibakov.users.cs.helsinki.fi/tsoha/move_list_a">Move List for Admin</a></b></li>
+	  <li><b><a href="http://msibakov.users.cs.helsinki.fi/tsoha/login">Log In</a></b> user: UserName, password: SecretPassword</li>
+	  <li>Jostain syystä en voinut enää muokata add_test_data.sql, jotta olisin voinut luoda toisen käyttäjän</li>
+	 
 	 </ul>
   </p>
 	

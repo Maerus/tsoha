@@ -7,11 +7,15 @@
   $app->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
   });
-
-  $app->get('/test1', function() {
-    HelloWorldController::test1();
+  
+  $app->get('/login', function() {
+    UserController::login();
   });
-
+  
+  $app->post('/login', function() {
+    UserController::handle_login();
+  });
+  
   $app->get('/move_list', function() {
     MoveController::index();
   });
@@ -31,6 +35,18 @@
   
   $app->get('/move_edit/:id', function($id) {
     MoveController::moveedit_a($id);
+  });
+  
+  $app->post('/move_edit/:id', function($id) {
+    MoveController::update($id);
+  });
+  
+  $app->post('/move_edit/:id/destroy', function($id) {
+    MoveController::destroy($id);
+  });
+  
+   $app->get('/test1', function() {
+    HelloWorldController::test1();
   });
   
   $app->get('/test3', function() {
