@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>List of Pokemon</h1>
+  
+  <div class="alert alert-success">
+    {{message}}
+  </div>
+
+  <p>
+    <a href="{{base_path}}/species/new" class="btn btn-warning">Add Pokemon Species</a>
+  </p>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+		<th>Dex</th> 
+        <th>Type</th>
+        <th>Abilities</th>
+		<th>Hidden Abilities</th>
+		<th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      
+	  
+	  {% for s in species %}
+	<tr>
+        <td>{{s.name}}</td>
+		<td>{{s.dexno}}</td>
+        <td><a class="btn btn-default btn-sm"><label>{{s.type1}}</label><a> <a class="btn btn-default btn-sm"><label>{{s.type2}}</label><a></td>
+        <td><a class="btn btn-default btn-sm">{{s.ability1}}<a>  <a class="btn btn-default btn-sm">{{s.ability2}}<a></td>
+		<td><a class="btn btn-default btn-sm">{{s.hability1}}<a>  <a class="btn btn-default btn-sm">{{s.hability2}}<a></td>
+		<th><a class="btn btn-warning btn-sm"
+			href="{{base_path}}/species/edit/{{s.id}}">Edit</a> <form
+				method="post" action="{{base_path}}/species/edit/{{s.id}}/destroy">
+				<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+			</form>
+    </tr>
+	{% endfor %}
+	  
+    </tbody>
+  </table>
+{% endblock %}

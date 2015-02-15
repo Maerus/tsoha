@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <ul>
+	<li><strong>Species:</strong> {{species.name}}</li>
+	<li><strong>Dex:</strong> {{species.dexno}}</li>
+	<li><strong>Types:</strong> {{species.type1}} {{species.type2}}</li>
+	<li><strong>Abilities:</strong> {{species.ability1}} {{species.ability2}}</li>
+	<li><strong>Hidden Abilities:</strong> {{species.hability1}} {{species.hability2}}</li>
+  </ul>
+  <p><strong>Base Stats:</strong></p>
+  
+  <table class="table table-striped table-bordered">
+    <tbody>
+	  <tr>
+		<td>HP</td>
+		<td>{{species.base_hp}}</td>
+      </tr>
+	  <tr>
+		<td>Attack</td>
+		<td>{{species.base_atk}}</td>
+      </tr>
+	  <tr>
+		<td>Defence</td>
+		<td>{{species.base_def}}</td>
+      </tr>
+	  <tr>
+		<td>Special Attack</td>
+		<td>{{species.base_satk}}</td>
+      </tr>
+	  <tr>
+		<td>Special Defence</td>
+		<td>{{species.base_sdef}}</td>
+      </tr>
+	  <tr>
+		<td>Speed</td>
+		<td>{{species.base_speed}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <p>
+    <a class="btn btn-default btn-sm" href="#">Known moves (unimplemented)</a>
+  </p>
+  
+  
+  
+{% endblock %}

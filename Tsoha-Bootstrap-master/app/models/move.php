@@ -11,7 +11,8 @@
 		parent::__construct($attributes);
 		
 		
-		$this->validators = array('validate_type', 'validate_category', 'validate_power', 'validate_accuracy', 'validate_pp', 'validate_description');
+		$this->validators = array('validate_type', 'validate_category', 'validate_power',
+		'validate_accuracy', 'validate_pp', 'validate_description');
 	}
 	
 	
@@ -32,6 +33,7 @@
 		return $errors;
 	}
 	
+	/*
 	public function validate_name_edit($id){
 		$errors = array();
 		
@@ -50,7 +52,7 @@
 		
 		return $errors;
 	}
-	
+	*/
 	
 	public function validate_type(){
 		$errors = array();
@@ -60,7 +62,9 @@
 			return $errors;
 		}
 		
-		$eTypes = array('Normal', 'Fire', 'Fighting', 'Water', 'Flying', 'Grass', 'Poison', 'Electric', 'Ground', 'Psychic', 'Rock', 'Ice', 'Bug', 'Dragon', 'Ghost', 'Dark', 'Steel', 'Fairy');
+		$eTypes = array('Normal', 'Fire', 'Fighting', 'Water', 'Flying', 
+		'Grass', 'Poison', 'Electric', 'Ground', 'Psychic', 'Rock', 'Ice', 
+		'Bug', 'Dragon', 'Ghost', 'Dark', 'Steel', 'Fairy');
 		$test = in_array($this->type, $eTypes);
 		
 		
@@ -166,8 +170,6 @@
 		
 		$sql = DB::query('INSERT INTO move(name, type, category, power, accuracy, pp, description)
 			VALUES(:name, :type, :category, :power, :accuracy, :pp, :description) RETURNING id', $array);
-		//$id = $sql[0]['id'];
-		//^ toimi viime viikolla :l
 		return $sql;
 	}
 	

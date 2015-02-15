@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+  <h1>Add new species</h1>
+  
+    {% if errors %}
+	<div class="alert alert-danger">
+      <ul>
+        {% for error in errors %}
+          {{error}}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  
+  
+  <form method="post" action="{{base_path}}/species/list_a">
+  
+  
+  
+	<div class="form-inline">
+	  <label class="control-label">Name:</label>
+      <input name="name" class="form-control" value="{{attributes.name}}" type="text">
+	  </div>
+	
+	<div class="form-inline">
+	  <label class="control-label">Dex:</label>
+      <input name="dexno" class="form-control" value="{{attributes.dexno}}" type="text">
+	  </div>
+	
+	<div class="form-inline">
+	  <label class="control-label">Types:</label>
+      <input name="type1" class="form-control" value="{{attributes.type1}}" type="text">
+	  <input name="type2" class="form-control" value="{{attributes.type2}}" type="text">
+	  </div>
+	 
+	<div class="form-inline">
+	<label class="control-label">Abilities:</label>
+      <input name="ability1" class="form-control" value="{{attributes.ability1}}" type="text">
+	  <input name="ability2" class="form-control" value="{{attributes.ability2}}" type="text">
+	</div>
+	
+	<div class="form-inline">
+	<label class="control-label">Hidden Abilities:</label>
+      <input name="hability1" class="form-control" value="{{attributes.hability1}}" type="text">
+	  <input name="hability2" class="form-control" value="{{attributes.hability2}}" type="text">
+	</div>
+	
+	<strong>Base Stats:</strong>
+	<div class="form-inline">
+	  <label class="control-label">HP:</label>
+      <input name="base_hp" class="form-control" value="{{attributes.base_hp}}" type="text">
+	  <label class="control-label">Attack:</label>
+      <input name="base_atk" class="form-control" value="{{attributes.base_atk}}" type="text">
+	  <label class="control-label">Defence:</label>
+      <input name="base_def" class="form-control" value="{{attributes.base_def}}" type="text"></div>
+	<div class="form-inline">
+	  <label class="control-label">Special Attack:</label>
+      <input name="base_satk" class="form-control" value="{{attributes.base_satk}}" type="text">
+	  <label class="control-label">Special Defence:</label>
+      <input name="base_sdef" class="form-control" value="{{attributes.base_sdef}}" type="text">
+	  <label class="control-label">Speed:</label>
+      <input name="base_speed" class="form-control" value="{{attributes.base_speed}}" type="text"></div>
+	  
+  <p>
+    <button type="submit" class="btn btn-success">Save</button>
+  </p>
+  
+  </form>
+  
+  
+  <p>
+    <a class="btn btn-default btn-sm" href="#">Edit known moves (unimplemented)</a>
+  </p>
+  
+  
+  
+{% endblock %}

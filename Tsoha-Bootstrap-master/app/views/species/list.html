@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>List of Pokemon</h1>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+		<th>Dex</th> 
+        <th>Type</th>
+        <th>Abilities</th>
+		<th>Hidden Abilities</th>
+      </tr>
+    </thead>
+
+    <tbody>
+	
+	
+	
+	{% for s in species %}
+	<tr>
+        <td><a href="{{base_path}}/species/show/{{s.id}}">{{s.name}}</a></td>
+		<td>{{s.dexno}}</td>
+        <td><a class="btn btn-default btn-sm"><label>{{s.type1}}</label><a> <a class="btn btn-default btn-sm"><label>{{s.type2}}</label><a></td>
+        <td><a class="btn btn-default btn-sm">{{s.ability1}}<a>  <a class="btn btn-default btn-sm">{{s.ability2}}<a></td>
+		<td><a class="btn btn-default btn-sm">{{s.hability1}}<a>  <a class="btn btn-default btn-sm">{{s.hability2}}<a></td>
+    </tr>
+	{% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

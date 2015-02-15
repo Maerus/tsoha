@@ -6,14 +6,14 @@
 	  public static function index(){
 		  $moves = Move::all();
 		  
-		  self::render_view('move_list.html', array('moves' => $moves));
+		  self::render_view('move/list.html', array('moves' => $moves));
 	  }
 	  
 	  
 	  public static function movelist_a(){
 		  $moves = Move::all();
 		  
-		  self::render_view('move_list_admin.html', array('moves' => $moves));
+		  self::render_view('move/list_admin.html', array('moves' => $moves));
 	  }
 	  
 	  
@@ -21,7 +21,7 @@
 		   
 		  $move = Move::findById($id);
 		  
-		  self::render_view('move_edit_admin.html', array('move' => $move));
+		  self::render_view('move/edit_admin.html', array('move' => $move));
 	  }
 	  
 	  
@@ -46,10 +46,10 @@
 		  if(count($errors) == 0){
 			  $id = Move::create($attributes);
 		  
-		      self::redirect_to('/move_list_a', array('message' => 'Move added to database.'));
+		      self::redirect_to('/move/list_a', array('message' => 'Move added to database.'));
 		  }
 		  else {
-			  self::render_view('/move_new_admin.html', array('errors' => $errors, 'attributes' => $attributes));
+			  self::render_view('/move/new_admin.html', array('errors' => $errors, 'attributes' => $attributes));
 		  }
 		  
 		  exit();
@@ -59,7 +59,7 @@
 	  public static function edit($id){
         $move = Move::findById($id);
      
-        self::render_view('move_edit_admin.html', array('attributes' => $move));
+        self::render_view('move/edit_admin.html', array('attributes' => $move));
       }
 	  
 	  public static function update($id){
@@ -76,11 +76,11 @@
 		
 		
 		if(count($errors) > 0){
-			self::render_view('move_edit_admin.html', array('errors' => $errors, 'move' => $move));
+			self::render_view('move/edit_admin.html', array('errors' => $errors, 'move' => $move));
 		}
 		else{
 			Move::update($id, $attributes);
-			self::redirect_to('/move_list_a', array('message' => 'Move has been edited successfully'));
+			self::redirect_to('/move/list_a', array('message' => 'Move has been edited successfully'));
 		}
 		
 		exit();
@@ -88,8 +88,8 @@
 	  
 	  public static function destroy($id){
 		  Move::destroy($id);
-		  self::redirect_to('/move_list_a', array('message' => 'Move has been deleted'));
-		  //self::redirect_to('/move_list_a/', array('message' => 'Move has been deleted.'));
+		  self::redirect_to('/move/list_a', array('message' => 'Move has been deleted'));
+		  //self::redirect_to('/move/list_a/', array('message' => 'Move has been deleted.'));
 		  
 	  }
 	  
@@ -99,7 +99,7 @@
 	  
 	  public static function create(){
 		  
-		  self::render_view('move_new_admin.html');
+		  self::render_view('move/new_admin.html');
 		  
 	  }
 	  

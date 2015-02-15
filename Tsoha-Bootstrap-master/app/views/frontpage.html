@@ -5,9 +5,36 @@
 
   <h1>Welcome to Pokemon Database</h1>
   
+  
+  {% if message %}
+	<div class="alert alert-success">
+          {{message}}
+    </div>
+  {% endif %}
+  
+  {% if error %}
+	<div class="alert alert-warning">
+          {{error}}
+    </div>
+  {% endif %}
+  
   <p>
-    <a class="btn btn-warning btn-sm" href="#">Browse Pokemon Database</a> <a class="btn btn-warning btn-sm" href="#">Log in</a>
+    <a class="btn btn-warning btn-sm" href="http://msibakov.users.cs.helsinki.fi/tsoha/species/list">Browse Pokemon Species</a>
+	<a class="btn btn-warning btn-sm" href="http://msibakov.users.cs.helsinki.fi/tsoha/move/list">Browse Pokemon Moves</a>
+	
+	{% if user %}
+	<a class="btn btn-default btn-sm" href="#">View your Pokemon</a>
+	<a class="btn btn-warning btn-sm" href="http://msibakov.users.cs.helsinki.fi/tsoha/logout">Log out</a>
+	{% else %}
+	<a class="btn btn-warning btn-sm" href="http://msibakov.users.cs.helsinki.fi/tsoha/login">Log in</a>
+	{% endif %}
+	
   </p>
   
+  <div class="alert alert-warning">
+          Admin:
+		  <a class="btn btn-warning btn-sm" href="http://msibakov.users.cs.helsinki.fi/tsoha/species/list_a">Edit Pokemon Species</a>
+		  <a class="btn btn-warning btn-sm" href="http://msibakov.users.cs.helsinki.fi/tsoha/move/list_a">Edit Pokemon Moves</a>
+  </div>
   
 {% endblock %}

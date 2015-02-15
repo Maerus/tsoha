@@ -15,14 +15,21 @@
           self::redirect_to('/login', array('error' => 'Wrong username or password'));
 		}
 		else if($user == $preuser){
-			self::redirect_to('/', array('error' => 'You are already logged in.'));
+			self::redirect_to('/', array('error' => 'You are already logged in.', 'user' => $user));
 		}
 		else {
 			
 			$_SESSION['user'] = $user->id;
-			self::redirect_to('/', array('message' => 'You have logged in :)'));
+			self::redirect_to('/', array('message' => 'You have logged in', 'user' => $user));
 		}
 	}
+	
+	public static function logout(){
+		$_SESSION['user'] = null;
+		
+		self::redirect_to('/', array('message' => 'You have logged out.'));
+	}
+	
   }
 
   

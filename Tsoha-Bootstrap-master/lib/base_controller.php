@@ -14,7 +14,11 @@
     }
 
     public static function check_logged_in(){
-      // Toteuta kirjautumisen tarkistus tähän
+		
+		if(!isset($_SESSION['user'])){
+			self::redirect_to('/login', array('message' => 'Please log in.'));
+		}
+		
     }
 
     public static function render_view($view, $content = array()){

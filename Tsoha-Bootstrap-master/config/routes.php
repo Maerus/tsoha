@@ -8,6 +8,7 @@
     HelloWorldController::sandbox();
   });
   
+  //user controller
   $app->get('/login', function() {
     UserController::login();
   });
@@ -16,71 +17,74 @@
     UserController::handle_login();
   });
   
-  $app->get('/move_list', function() {
+   $app->get('/logout', function() {
+    UserController::logout();
+  });
+  //user controller end
+  
+  //move controller
+  $app->get('/move/list', function() {
     MoveController::index();
   });
   
-  $app->post('/move_list_a', function() {
+  $app->post('/move/list_a', function() {
     MoveController::store();
   });
   
-  $app->get('/move_list_a', function() {
+  $app->get('/move/list_a', function() {
     MoveController::movelist_a();
   });
   
   // new before :id
-  $app->get('/move_edit/new', function() {
+  $app->get('/move/new', function() {
     MoveController::create();
   });
   
-  $app->get('/move_edit/:id', function($id) {
+  $app->get('/move/edit/:id', function($id) {
     MoveController::moveedit_a($id);
   });
   
-  $app->post('/move_edit/:id', function($id) {
+  $app->post('/move/edit/:id', function($id) {
     MoveController::update($id);
   });
   
-  $app->post('/move_edit/:id/destroy', function($id) {
+  $app->post('/move/edit/:id/destroy', function($id) {
     MoveController::destroy($id);
   });
+  //move controller end
   
-   $app->get('/test1', function() {
-    HelloWorldController::test1();
+  //species controller
+  $app->get('/species/list', function() {
+    SpeciesController::index();
   });
   
-  $app->get('/test3', function() {
-    HelloWorldController::test3();
+  $app->post('/species/list_a', function() {
+    SpeciesController::store();
   });
   
-  $app->get('/test4', function() {
-    HelloWorldController::test4();
+  $app->get('/species/list_a', function() {
+    SpeciesController::specieslist_a();
   });
   
-  $app->get('/test5', function() {
-    HelloWorldController::test5();
+  $app->get('/species/new', function() {
+    SpeciesController::create();
   });
   
-  $app->get('/test6', function() {
-    HelloWorldController::test6();
+  $app->get('/species/edit/:id', function($id) {
+    SpeciesController::speciesedit_a($id);
   });
   
-  $app->get('/test7', function() {
-    HelloWorldController::test7();
+  $app->post('/species/edit/:id', function($id) {
+    SpeciesController::update($id);
   });
   
-  $app->get('/test8', function() {
-    HelloWorldController::test8();
+  $app->post('/species/edit/:id/destroy', function($id) {
+    SpeciesController::destroy($id);
   });
   
-  $app->get('/test9', function() {
-    HelloWorldController::test9();
+  $app->get('/species/show/:id', function($id) {
+    SpeciesController::show($id);
   });
+  //species controller end
   
-  $app->get('/test10', function() {
-    HelloWorldController::test10();
-  });
   
-  $app->get('/test11', function() {
-    HelloWorldController::test11();
-  });
