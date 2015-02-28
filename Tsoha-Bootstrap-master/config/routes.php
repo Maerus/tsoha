@@ -3,10 +3,12 @@
   $app->get('/', function() {
     HelloWorldController::index();
   });
-
+  
+/*
   $app->get('/sandbox', function() {
     HelloWorldController::sandbox();
   });
+  */
   
   //user controller
   $app->get('/login', function() {
