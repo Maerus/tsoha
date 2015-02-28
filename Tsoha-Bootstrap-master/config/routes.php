@@ -4,7 +4,7 @@
     HelloWorldController::index();
   });
 
-  $app->get('/hiekkalaatikko', function() {
+  $app->get('/sandbox', function() {
     HelloWorldController::sandbox();
   });
   
@@ -19,6 +19,14 @@
   
    $app->get('/logout', function() {
     UserController::logout();
+  });
+  
+  $app->get('/signin', function() {
+    UserController::signin();
+  });
+  
+  $app->post('/signin', function() {
+    UserController::handle_signin();
   });
   //user controller end
   
@@ -35,7 +43,7 @@
     MoveController::movelist_a();
   });
   
-  // new before :id
+		// new before :id
   $app->get('/move/new', function() {
     MoveController::create();
   });
@@ -85,6 +93,61 @@
   $app->get('/species/show/:id', function($id) {
     SpeciesController::show($id);
   });
+  
+  $app->get('/species/moves/:id/edit', function($id) {
+    SpeciesController::bindmoves($id);
+  });
+  
+  $app->post('/species/moves/add/:sid/:mid', function($sid, $mid) {
+    SpeciesController::addmove($sid, $mid);
+  });
+  
+  $app->post('/species/moves/delete/:sid/:mid', function($sid, $mid) {
+    SpeciesController::delmove($sid, $mid);
+  });
+  
+  $app->get('/species/moves/:id/', function($id) {
+    SpeciesController::showmoves($id);
+  });
   //species controller end
+  
+  //pokemon controller
+  
+  $app->post('/pokemon/add', function() {
+    PokemonController::store();
+  });
+  
+  
+  
+  $app->get('/pokemon/list/:user_id/', function($user_id) {
+    PokemonController::index($user_id);
+  });
+  
+  $app->get('/pokemon/show/:id', function($id) {
+    PokemonController::show($id);
+  });
+  
+  $app->post('/pokemon/show/:id/', function($id) {
+    PokemonController::update($id);
+  });
+  
+  $app->post('/pokemon/show/:id/destroy', function($id) {
+    PokemonController::destroy($id);
+  });
+  
+  $app->get('/pokemon/show/:id/:moveno/', function($id, $moveno) {
+    PokemonController::showmove($id, $moveno);
+  });
+  
+  $app->post('/pokemon/show/:id/:moveno/:moveid', function($id, $moveno, $moveid) {
+    PokemonController::setmove($id, $moveno, $moveid);
+  });
+  
+  $app->get('/pokemon/show/:id/:moveno/delete/', function($id, $moveno) {
+    PokemonController::delmove($id, $moveno);
+  });
+  
+  //pokemon controller end
+  
   
   

@@ -42,18 +42,18 @@ CREATE TABLE species(
 
 -- junction table
 CREATE TABLE moves_of_species(
-	move_id integer REFERENCES move(id),
-	species_id integer REFERENCES species(id),
+	move_id integer REFERENCES move(id) ON DELETE CASCADE,
+	species_id integer REFERENCES species(id) ON DELETE CASCADE,
 	id SERIAL NOT NULL PRIMARY KEY
 );
 
 CREATE TABLE pokemon(
-	user_id integer REFERENCES patron(id),
-	species_id integer REFERENCES species(id),
+	user_id integer NOT NULL REFERENCES patron(id) ON DELETE CASCADE,
+	species_id integer NOT NULL REFERENCES species(id) ON DELETE CASCADE,
 	id SERIAL NOT NULL PRIMARY KEY,
 	nickname varchar(50) NOT NULL,
-	gender pokemon_gender NOT NULL,
-	ability varchar(20) NOT NULL,
+	gender pokemon_gender,
+	ability varchar(20),
 	iv_hp integer CHECK(iv_hp < 32) CHECK(iv_hp > -1),
 	iv_atk integer CHECK(iv_atk < 32) CHECK(iv_atk > -1),
 	iv_def integer CHECK(iv_def < 32) CHECK(iv_def > -1),
@@ -66,9 +66,9 @@ CREATE TABLE pokemon(
 	ev_satk integer CHECK(ev_satk < 253) CHECK(ev_satk > -1),
 	ev_sdef integer CHECK(ev_sdef < 253) CHECK(ev_sdef > -1),
 	ev_speed integer CHECK(ev_speed < 253) CHECK(ev_speed > -1),
-	move1 integer REFERENCES move(id),
-	move2 integer REFERENCES move(id),
-	move3 integer REFERENCES move(id),
-	move4 integer REFERENCES move(id)
+	move1 integer REFERENCES move(id) ON DELETE SET DEFAULT,
+	move2 integer REFERENCES move(id) ON DELETE SET DEFAULT,
+	move3 integer REFERENCES move(id) ON DELETE SET DEFAULT,
+	move4 integer REFERENCES move(id) ON DELETE SET DEFAULT
 );
 

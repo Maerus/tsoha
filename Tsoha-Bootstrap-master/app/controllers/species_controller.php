@@ -10,6 +10,11 @@
 	  
 	  
 	  public static function specieslist_a(){
+		  self::check_logged_in();
+		  $user = self::get_user_logged_in();
+		  self::check_admin($user);
+		  
+		  
 		  $species = Species::all();
 		  
 		  self::render_view('species/list_admin.html', array('species' => $species));
@@ -17,6 +22,9 @@
 	  
 	  
 	   public static function speciesedit_a($id){
+		  self::check_logged_in();
+		  $user = self::get_user_logged_in();
+		  self::check_admin($user);
 		   
 		  $species = Species::findById($id);
 		  
@@ -28,6 +36,64 @@
      
         self::render_view('species/show.html', array('species' => $species));
       }
+	  
+	  public static function bindmoves($id){
+		  self::check_logged_in();
+		  $user = self::get_user_logged_in();
+		  self::check_admin($user);
+		  
+        $species = Species::findById($id);
+		$moves = Move::all();
+		$junction = MoveOfSpecies::findBySpeciesId($id);
+		
+		$array = array();
+		if(is_array($junction)){
+			foreach($junction as $row){
+				$array[] = $row->move_id;
+			}
+		}
+		else if($junction != null){
+			$array[] = $junction->move_id;
+		}
+		
+     
+        self::render_view('species/bind_moves.html', array('species' => $species, 'moves' => $moves, 'array' => $array));
+      }
+	  
+	  public static function showmoves($id){
+        $species = Species::findById($id);
+		$moves = Move::all();
+		$junction = MoveOfSpecies::findBySpeciesId($id);
+		
+		$array = array();
+		if(is_array($junction)){
+			foreach($junction as $row){
+				$array[] = $row->move_id;
+			}
+		}
+		else if($junction != null){
+			$array[] = $junction->move_id;
+		}
+     
+        self::render_view('species/show_moves.html', array('species' => $species, 'moves' => $moves, 'array' => $array));
+      }
+	  
+	  public static function addmove($sid, $mid){
+		  $attributes = array(
+			'species_id' => $sid,
+			'move_id' => $mid);
+			
+		  $id = MoveOfSpecies::create($attributes);
+		  self::redirect_to('/species/moves/'.$sid.'/edit');
+		  exit();
+	  }
+	  
+	  public static function delmove($sid, $mid){
+		  MoveOfSpecies::destroy($sid, $mid);
+		  self::redirect_to('/species/moves/'.$sid.'/edit');
+		  exit();
+	  }
+	  
 	  
 	  public static function store(){
 		  $params = $_POST;
@@ -115,7 +181,9 @@
 	  
 	  
 	  public static function create(){
-		  
+		  self::check_logged_in();
+		  $user = self::get_user_logged_in();
+		  self::check_admin($user);
 		  self::render_view('species/new_admin.html');
 		  
 	  }

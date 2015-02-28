@@ -5,9 +5,17 @@
 
   
   
-  <div class="alert alert-success">
-    {{message}}
-  </div>
+   {% if message %}
+	<div class="alert alert-success">
+          {{message}}
+    </div>
+  {% endif %}
+  
+  {% if error %}
+	<div class="alert alert-warning">
+          {{error}}
+    </div>
+  {% endif %}
   
 
   <p>

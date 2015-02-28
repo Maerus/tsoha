@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Bind moves to {{species.name}}</h1>
+
+  
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Move</th>
+        <th>Type</th>
+        <th>Category</th>
+		<th>Power</th>
+		<th>Accuracy</th>
+        <th>PP</th>
+      </tr>
+    </thead>
+
+    <tbody>
+	
+
+	
+	{% for move in moves %}
+	  <tr>
+	  
+		<td>
+		  {% if move.id in array %}
+		  <form method="post" action="{{base_path}}/species/moves/delete/{{species.id}}/{{move.id}}">
+		  <button type="submit" class="btn btn-success">{{move.name}}</button>
+		  </form>
+		  {% else %}
+		  <form method="post" action="{{base_path}}/species/moves/add/{{species.id}}/{{move.id}}">
+		  <button type="submit" class="btn btn-default">{{move.name}}</button>
+		  </form>
+		  {% endif %}
+		</td>
+		
+        <td>{{move.type}}</td>
+        <td>{{move.category}}</td>
+        <td>{{move.power}}</td>
+        <td>{{move.accuracy}}%</td>
+		<td>{{move.pp}}</td>
+      </tr>
+	  {% endfor %}
+    </tbody>
+  </table>
+  
+
+  
+  
+  
+{% endblock %}
+  
+  
+  

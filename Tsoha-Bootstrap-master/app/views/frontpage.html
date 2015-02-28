@@ -12,29 +12,47 @@
     </div>
   {% endif %}
   
+  {% if alert %}
+	<div class="alert alert-warning">
+          {{alert}}
+    </div>
+  {% endif %}
+  
   {% if error %}
 	<div class="alert alert-warning">
           {{error}}
     </div>
   {% endif %}
   
-  <p>
-    <a class="btn btn-warning btn-sm" href="http://msibakov.users.cs.helsinki.fi/tsoha/species/list">Browse Pokemon Species</a>
-	<a class="btn btn-warning btn-sm" href="http://msibakov.users.cs.helsinki.fi/tsoha/move/list">Browse Pokemon Moves</a>
-	
-	{% if user %}
-	<a class="btn btn-default btn-sm" href="#">View your Pokemon</a>
-	<a class="btn btn-warning btn-sm" href="http://msibakov.users.cs.helsinki.fi/tsoha/logout">Log out</a>
-	{% else %}
-	<a class="btn btn-warning btn-sm" href="http://msibakov.users.cs.helsinki.fi/tsoha/login">Log in</a>
-	{% endif %}
-	
+  {% if user_logged_in %}
+	<p>
+	<a class="btn btn-default btn-sm" href="{{base_path}}/logout">Log out</a>
   </p>
+  {% else %}
+  <p>
+	<a class="btn btn-default btn-sm" href="{{base_path}}/login">Log in</a>
+  </p>
+  <p>
+	<a class="btn btn-default btn-sm" href="{{base_path}}/sign_in">Create Account</a>
+  </p>
+  {% endif %}
+  <p>
+    <a class="btn btn-warning btn-sm" href="{{base_path}}/species/list">Browse Pokemon Species</a>
+  </p>
+  <p>
+	<a class="btn btn-warning btn-sm" href="{{base_path}}/move/list">Browse Pokemon Moves</a>
+  </p>
+  
+  
+  {% if user_logged_in %}
+  {% if user_logged_in.name ==  "AdminAuthority" %}
   
   <div class="alert alert-warning">
           Admin:
-		  <a class="btn btn-warning btn-sm" href="http://msibakov.users.cs.helsinki.fi/tsoha/species/list_a">Edit Pokemon Species</a>
-		  <a class="btn btn-warning btn-sm" href="http://msibakov.users.cs.helsinki.fi/tsoha/move/list_a">Edit Pokemon Moves</a>
+		  <a class="btn btn-warning btn-sm" href="{{base_path}}/species/list_a">Edit Pokemon Species</a>
+		  <a class="btn btn-warning btn-sm" href="{{base_path}}/move/list_a">Edit Pokemon Moves</a>
   </div>
+  {% endif %}
+  {% endif %}
   
 {% endblock %}

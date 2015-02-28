@@ -11,6 +11,10 @@
 	  
 	  
 	  public static function movelist_a(){
+		  self::check_logged_in();
+		  $user = self::get_user_logged_in();
+		  self::check_admin($user);
+		  
 		  $moves = Move::all();
 		  
 		  self::render_view('move/list_admin.html', array('moves' => $moves));
@@ -18,6 +22,9 @@
 	  
 	  
 	   public static function moveedit_a($id){
+		   self::check_logged_in();
+		  $user = self::get_user_logged_in();
+		  self::check_admin($user);
 		   
 		  $move = Move::findById($id);
 		  
@@ -57,6 +64,11 @@
 	  
 	  
 	  public static function edit($id){
+		  self::check_logged_in();
+		  $user = self::get_user_logged_in();
+		  self::check_admin($user);
+		  
+		  
         $move = Move::findById($id);
      
         self::render_view('move/edit_admin.html', array('attributes' => $move));
@@ -98,6 +110,9 @@
 	  
 	  
 	  public static function create(){
+		  self::check_logged_in();
+		  $user = self::get_user_logged_in();
+		  self::check_admin($user);
 		  
 		  self::render_view('move/new_admin.html');
 		  

@@ -1,14 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Favourite Pokemon</h1>
-
+  <h1>{{user_logged_in.name}}'s Pokemon</h1>
+  
+  {% if message %}
+	<div class="alert alert-success">
+          {{message}}
+    </div>
+  {% endif %}
+  
+  
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
         <th>Nickname</th>
 		<th>Species</th>
-		<th>Dex</th> 
+		<th>Dex no.</th> 
 		<th>Gender</th> 
         <th>Type</th>
         <th>Ability</th>
@@ -16,15 +23,16 @@
     </thead>
 
     <tbody>
-      
+	  {% for mon in pokemon %}
 	  <tr>
-		<td><a href="#">Froge</a></td>
-		<td>Greninja</td>
-		<td>658</td>
-		<td>Female</td>
-        <td><label>Water</label> <label>Dark</label></td>
-		<td>Protean</td>
+		<td><a href="{{base_path}}/pokemon/show/{{mon.id}}">{{mon.nickname}}</a></td>
+		<td>{{mon.species_name}}</td>
+		<td>{{mon.species_dexno}}</td>
+		<td>{{mon.gender}}</td>
+        <td><a class="btn btn-default btn-sm"><label>{{mon.species_type1}}</label></a>{% if mon.species_type2 %} <a class="btn btn-default btn-sm"><label>{{mon.species_type2}}</label></a>{% endif %}</td>
+		<td>{{mon.ability}}</td>
       </tr>
+	  {% endfor %}
     </tbody>
   </table>
 {% endblock %}

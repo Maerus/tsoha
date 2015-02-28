@@ -3,6 +3,13 @@
 {% block content %}
   <h1>List of Pokemon</h1>
 
+  {% if message %}
+	<div class="alert alert-success">
+          {{message}}
+    </div>
+  {% endif %}
+  
+  
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
@@ -22,9 +29,9 @@
 	<tr>
         <td><a href="{{base_path}}/species/show/{{s.id}}">{{s.name}}</a></td>
 		<td>{{s.dexno}}</td>
-        <td><a class="btn btn-default btn-sm"><label>{{s.type1}}</label><a> <a class="btn btn-default btn-sm"><label>{{s.type2}}</label><a></td>
-        <td><a class="btn btn-default btn-sm">{{s.ability1}}<a>  <a class="btn btn-default btn-sm">{{s.ability2}}<a></td>
-		<td><a class="btn btn-default btn-sm">{{s.hability1}}<a>  <a class="btn btn-default btn-sm">{{s.hability2}}<a></td>
+        <td><a class="btn btn-default btn-sm"><label>{{s.type1}}</label></a>{% if s.type2 %} <a class="btn btn-default btn-sm"><label>{{s.type2}}</label></a>{% endif %}</td>
+        <td><a class="btn btn-default btn-sm">{{s.ability1}}</a>{% if s.ability2 %}  <a class="btn btn-default btn-sm">{{s.ability2}}</a>{% endif %}</td>
+		<td>{% if s.hability1 %}<a class="btn btn-default btn-sm">{{s.hability1}}</a>{% endif %}{% if s.hability2 %}  <a class="btn btn-default btn-sm">{{s.hability2}}</a>{% endif %}</td>
     </tr>
 	{% endfor %}
     </tbody>

@@ -1,20 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Log in to system</h1>
+  <h1>Create a new account!</h1>
   
-  {% if error %}
-  <div class="alert alert-danger">
-    {{error}}
-  </div>
+  
+  {% if errors %}
+	<div class="alert alert-danger">
+      <ul>
+        {% for error in errors %}
+          {{error}}
+        {% endfor %}
+      </ul>
+    </div>
   {% endif %}
 
   <!-- Kaikki lomakkeen elementit form-tagin sisään -->
-  <form method="post" action="{{base_path}}/login">
+  <form method="post" action="{{base_path}}/signin">
     <!-- Tekstikenttä käyttäjätunnukselle -->
     <div class="form-group">
       <label>Username</label>
-      <input class="form-control" name="username" type="text">
+      <input class="form-control" name="name" type="text">
     </div>
 
     <!-- Salasanakenttä salasanalle -->
@@ -23,6 +28,6 @@
       <input class="form-control" name="password" type="password">
     </div>
 
-    <button type="submit" class="btn btn-primary">Log in</button>
+    <button type="submit" class="btn btn-primary">Create Account</button>
   </form>
 {% endblock %}

@@ -3,9 +3,11 @@
 {% block content %}
   <h1>List of Pokemon</h1>
   
-  <div class="alert alert-success">
-    {{message}}
-  </div>
+  {% if message %}
+	<div class="alert alert-success">
+          {{message}}
+    </div>
+  {% endif %}
 
   <p>
     <a href="{{base_path}}/species/new" class="btn btn-warning">Add Pokemon Species</a>

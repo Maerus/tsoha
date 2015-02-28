@@ -164,9 +164,6 @@
 	}
 	
 	
-	/*
-		nullit eivät ole kivoja
-	*/
 	public static function create($array){
 		
 		$sql = 'INSERT INTO species(name, dexno, type1, type2, ability1, ability2, hability1, hability2,
@@ -224,9 +221,6 @@
 	}
 	
 	
-	/*
-		nullit eivät ole kivoja
-	*/
 	public static function update($id, $array){
 		
 		$sql = 'UPDATE species SET

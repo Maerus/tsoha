@@ -6,6 +6,31 @@
    	  self::render_view('login.html');
     }
 	
+	public static function signin(){
+   	  self::render_view('sign_in.html');
+    }
+	
+	public static function handle_signin(){
+		$params = $_POST;
+		  $attributes = array(
+		    'name' => $params['name'],
+			'password' => $params['password']
+			);
+		
+		$user = new User($attributes);
+		$errors = $user->errors();
+		
+		if(count($errors) == 0){
+			$id = User::create($attributes);
+		    self::redirect_to('/', array('message' => 'Account has been made. Please log in!'));
+		}
+		else {
+			self::render_view('/sign_in.html', array('errors' => $errors, 'attributes' => $attributes));
+		}
+		
+		exit();
+	}
+	
 	public static function handle_login(){
 		$params = $_POST;
 		$user = User::authenticate($params['username'], $params['password']);

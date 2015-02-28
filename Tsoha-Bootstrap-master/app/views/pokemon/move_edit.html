@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Select move for {{pokemon.nickname}}</h1>
+  
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Move</th>
+        <th>Type</th>
+        <th>Category</th>
+		<th>Power</th>
+		<th>Accuracy</th>
+        <th>PP</th>
+      </tr>
+    </thead>
+	
+	
+	{% for move in moves %}
+	{% if move.id in array %}
+	  <tr>
+	  
+		<td>
+		  <form method="post" action="{{base_path}}/pokemon/show/{{pokemon_id}}/{{moveno}}/{{move.id}}">
+		  <button type="submit" class="btn btn-default">{{move.name}}</button>
+		  </form>
+		</td>
+		
+        <td>{{move.type}}</td>
+        <td>{{move.category}}</td>
+        <td>{{move.power}}</td>
+        <td>{{move.accuracy}}%</td>
+		<td>{{move.pp}}</td>
+      </tr>
+	  {% endif %}
+	  {% endfor %}
+    </tbody>
+  </table>
+	
+	
+	
+	
+	
+	
+{% endblock %}

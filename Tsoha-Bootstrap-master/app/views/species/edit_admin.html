@@ -17,8 +17,6 @@
   
   <form method="post" action="{{base_path}}/species/edit/{{species.id}}">
   
-  
-  
   <ul>
 	Dex number: {{species.dexno}}
 	<li><div class="form-inline">
@@ -65,7 +63,7 @@
   
   
   <p>
-    <a class="btn btn-default btn-sm" href="#">Edit known moves (unimplemented)</a>
+    <a class="btn btn-default btn-sm" href="{{base_path}}/species/moves/{{species.id}}/edit">Edit known moves</a>
   </p>
   
   

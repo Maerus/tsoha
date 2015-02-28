@@ -20,6 +20,22 @@
 		}
 		
     }
+	
+	public static function check_correct_user($user, $target_id){
+		
+		if($user->id != $target_id){
+			self::redirect_to('/', array('alert' => 'The requested page is not available to you.'));
+		}
+		
+    }
+	
+	public static function check_admin($user){
+		
+		if($user->name != 'AdminAuthority'){
+			self::redirect_to('/', array('alert' => 'The requested page is not available to you.'));
+		}
+		
+    }
 
     public static function render_view($view, $content = array()){
       Twig_Autoloader::register();

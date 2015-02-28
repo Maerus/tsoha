@@ -33,7 +33,7 @@
 		return $errors;
 	}
 	
-	/*
+	/* nimeä ei voi enää muokata, niin tätä ei tarvita
 	public function validate_name_edit($id){
 		$errors = array();
 		
@@ -259,17 +259,17 @@
 		if(count($rows) > 0){
 			
 			foreach($rows as $row){
-			$moves[] = new Move(array(
-				'id' => $row['id'],
-				'name' => $row['name'],
-				'type' => $row['type'],
-				'category' => $row['category'],
-				'power' => $row['power'],
-				'accuracy' => $row['accuracy'],
-				'pp' => $row['pp'],
-				'description' => $row['description'],
-			));
-		}
+				$moves[] = new Move(array(
+					'id' => $row['id'],
+					'name' => $row['name'],
+					'type' => $row['type'],
+					'category' => $row['category'],
+					'power' => $row['power'],
+					'accuracy' => $row['accuracy'],
+					'pp' => $row['pp'],
+					'description' => $row['description'],
+				));
+			}
 			
 			return $moves;
 		}

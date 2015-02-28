@@ -5,9 +5,9 @@
   <ul>
 	<li><strong>Species:</strong> {{species.name}}</li>
 	<li><strong>Dex:</strong> {{species.dexno}}</li>
-	<li><strong>Types:</strong> {{species.type1}} {{species.type2}}</li>
-	<li><strong>Abilities:</strong> {{species.ability1}} {{species.ability2}}</li>
-	<li><strong>Hidden Abilities:</strong> {{species.hability1}} {{species.hability2}}</li>
+	<li><strong>Types:</strong> <a class="btn btn-default btn-sm"><label>{{species.type1}}</label></a>{% if species.type2 %} <a class="btn btn-default btn-sm"><label>{{species.type2}}</label></a>{% endif %}</li>
+	<li><strong>Abilities:</strong> <a class="btn btn-default btn-sm">{{species.ability1}}</a>{% if species.ability2 %}  <a class="btn btn-default btn-sm">{{species.ability2}}</a>{% endif %}</li>
+	<li><strong>Hidden Abilities:</strong> {% if species.hability1 %}<a class="btn btn-default btn-sm">{{species.hability1}}</a>{% endif %}{% if species.hability2 %}  <a class="btn btn-default btn-sm">{{species.hability2}}</a>{% endif %}</li>
   </ul>
   <p><strong>Base Stats:</strong></p>
   
@@ -41,9 +41,19 @@
   </table>
   
   <p>
-    <a class="btn btn-default btn-sm" href="#">Known moves (unimplemented)</a>
+    <a class="btn btn-default btn-sm" href="{{base_path}}/species/moves/{{species.id}}">Known moves</a>
   </p>
   
+  {% if user_logged_in %}
+  <p>
+	<form method="post" action="{{base_path}}/pokemon/add">
+	<input name="user_id" class="form-control" value="{{user_logged_in.id}}" type="hidden">
+	<input name="species_id" class="form-control" value="{{species.id}}" type="hidden">
+	<input name="name" class="form-control" value="{{species.name}}" type="hidden">
+	<button type="submit" class="btn btn-success">Add to my Pokemon</button>
+	</form>
+  </p>
+  {% endif %}
   
   
 {% endblock %}
